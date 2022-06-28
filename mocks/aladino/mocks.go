@@ -141,6 +141,7 @@ func MockEnvWith(prOwner string, prRepoName string, prNum int, client *github.Cl
 		clientGQL,
 		nil,
 		pr,
+		nil,
 		plugins_aladino.PluginBuiltIns(),
 	)
 
