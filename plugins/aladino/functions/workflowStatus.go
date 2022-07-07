@@ -45,7 +45,11 @@ func workflowStatusCode(e aladino.Env, args []aladino.Value) (aladino.Value, err
 
 	for _, check := range checkRuns.CheckRuns {
 		if *check.Name == workflowName {
-			return aladino.BuildStringValue(*check.Conclusion), nil
+			if *check.Status == "completed" {
+				return aladino.BuildStringValue(*check.Conclusion), nil
+			} else {
+				return aladino.BuildStringValue(*check.Status), nil
+			}
 		}
 	}
 
